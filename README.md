@@ -1,6 +1,6 @@
 # Spotify API Starter
 
-[![GitHub license](https://img.shields.io/github/license/clxrityy/spotify-api-starter)](https://github.com/clxrityy/spotify-api-starter/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/clxrityy/spotify-api-starter)](https://github.com/clxrityy/spotify-api-starter/blob/master/LICENSE)
 
 This is a starter project for a Spotify API application.
 
