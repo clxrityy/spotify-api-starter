@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/**
+ * temporary styles
+ */
+
+:root {
+    --primary-color: #3e3e3e;
+    --secondary-color: #272727;
+    --tertiary-color: #1c1d1d;
+    --quaternary-color: #333;
+    --quinary-color: #eee;
+    --senary-color: #000;
+    --septenary-color: #666;
+    --octonary-color: #222;
+    --nonary-color: rgb(19, 19, 19);
+    --blue: rgb(93, 146, 245);
+    
+    --icon-width-small: 18px;
+    --icon-width-medium: 24px;
+    --icon-width-large: 32px;
+    --icon-width-xlarge: 48px;
+    --icon-width-xxlarge: 64px;
+}
+
+nav {
+    width: screen;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 5;
+    gap: 1em;
+    padding: 1em;
+    background: linear-gradient(50% -50%, #3e3e3e 0%, #272727 100%);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.25s ease-out all;
+    letter-spacing: 0.075em;
+}
+
+nav #hidden {
+    display: none;
+}
+
+
+nav a:hover {
+    color: var(--blue);
+}
+
+nav a:focus {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+svg {
+    display: inline;
+    width: var(--icon-width-small);
+    height: var(--icon-width-small);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    min-width: screen;
+    min-height: screen;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, var(--nonary-color) 0%, var(--octonary-color) 100%);
+    color: #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+header {
+    width: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 0 auto;
+    gap: 0.25em;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        margin-top: 2em;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1rem;
+    }
+    header {
+        margin-top: 1em;
+        flex-direction: column;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 auto;
+    padding: 1em;
+    color: #eee;
+    text-shadow: 2px 2px 2px #000;
+}
+
+img {
+    border-radius: 24px;
+    filter: contrast(0.75);
+}
+
+main #content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 0 auto;
+    gap: 1em;
+    padding: 1em 1em 0 0;
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    main #content {
+        margin-top: 2em;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main #content {
+        margin-top: 1em;
+        flex-direction: column;
+    }
+}
+
+
+
+#content button {
+    padding: 0.75em 1em;
+    border-radius: 8px;
+    border: 2px solid var(--quaternary-color);
+    background-image: linear-gradient(120deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #eee;
+    font-size: 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s ease-out all;
+    box-shadow: 2px 2px 5px var(--tertiary-color);
+}
+
+#content button:hover {
+    background-color: #222;
+    scale: 0.95;
+}
+
+#content button:focus {
+    background-color: #221;
+}   
+
+#content button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+#content button:disabled:hover {
+    background-color: #666;
+}
+
+#content a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.25s ease-out all;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#content a:hover {
+    color: var(--blue);
+}
+
+#content a:focus {
+    color: var(--blue);
+    text-decoration: underline;
+}
