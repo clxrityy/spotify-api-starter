@@ -145,3 +145,6 @@ This is a starter project for a Spotify API application.
 - The flow is implemented in the [`api/routes/auth.py`](/api/routes/auth.py) file.
 
 To authorize, visit [`http://localhost:3000/api/auth`](http://localhost:3000/api/auth).
+    - This will redirect you to the Spotify Accounts Service to authorize the application.
+    - After authorizing, you will be redirected back to the application with an authorization code.
+    - The application will exchange the authorization code for an access token and store it in a cookie.
