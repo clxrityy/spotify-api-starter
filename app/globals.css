@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+:root {
+    --bg-gradient-start: 0deg, #21252b 0%, #060a13 100%;
+    --bg-gradient-end: 0deg, #1e1e20 0%, #292929 100%;
+    --background: #1a1d25;
+    --background-secondary: #1e293b;
+    --background-tertiary: #334155;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-active: #1d4ed8;
+    --border-color: #334155;
+    --border-color-secondary: #475569;
+    --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+html, body {
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: var(--font-mont);
+    background-image: linear-gradient(var(--bg-gradient-start), var(--bg-gradient-end));
+
+    @apply w-screen h-screen;
+}

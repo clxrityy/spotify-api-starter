@@ -20,19 +20,28 @@ from flask_cors import CORS
 
 ##### Other imports #####
 # Imports the `get_token()` function from `func/token.py`
-from func.token import get_token
+from func.token import get_access_token
 # Imports the `get_auth_header()` function from `func/header.py`
 from func.header import get_auth_header
 
 
 ### Variables
-spotify_token = get_token()
+spotify_token = get_access_token()
 spotify_auth_header = get_auth_header(spotify_token)
 
 # This creates a new Flask application.
 app = Flask(__name__)
+# Required for session
+app.secret_key = os.urandom(24)
+
 # This enables CORS for our Flask application.
-CORS(app)
+CORS(app, resources={
+    r"/api/*": {
+        "origins": ["http://localhost:3000"],
+        "methods": ["GET", "POST"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 
 # Import all the routes from the routes folder

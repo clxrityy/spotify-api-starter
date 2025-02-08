@@ -163,3 +163,4 @@ Whenever you make a change to the project, please update the changelog with a br
         - `/api/callback`
 - Changed the `redirect_uri` from `http://localhost:5000/api/callback` to `http://localhost:3000`.
 - Set up a code challenge and code verifier for the authorization code flow.
+- You can now access user data after authorization.
