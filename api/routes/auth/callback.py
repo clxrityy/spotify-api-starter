@@ -8,19 +8,19 @@ def callback():
     try:
         # Get code from request body
         data = request.get_json()
-        if not data or 'code' not in data:
+        code = data.get('code')
+        
+        if not code:
             return jsonify({"error": "No code provided"}), 400
 
-        code = data['code']
-        
         # Exchange code for token
         token_url = 'https://accounts.spotify.com/api/token'
         
         payload = {
-            'client_id': client_id,
             'grant_type': 'authorization_code',
             'code': code,
             'redirect_uri': 'http://localhost:3000',  # Next.js app URL
+            'client_id': client_id,
             'code_verifier': codeVerifier
         }
         

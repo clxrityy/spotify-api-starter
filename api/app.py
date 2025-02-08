@@ -39,7 +39,8 @@ CORS(app, resources={
     r"/api/*": {
         "origins": ["http://localhost:3000"],
         "methods": ["GET", "POST"],
-        "allow_headers": ["Content-Type"]
+        "allow_headers": ["Content-Type"],
+        "supports_credentials": True
     }
 })
 

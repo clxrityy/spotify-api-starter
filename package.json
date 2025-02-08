@@ -9,7 +9,8 @@
     "dev": "concurrently \"pnpm run next-dev\" \"pnpm run api-dev\"",
     "generate-venv": "python3 -m venv api/venv",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "clean": "rm -rf .next && rm -rf node_modules && pnpm i"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.4",
+    "lucide-react": "^0.475.0",
     "next": "^15.1.6"
   }
 }

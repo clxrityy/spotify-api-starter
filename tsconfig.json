@@ -17,12 +17,12 @@
           "name": "next"
         }
       ],
+      "target": "ES2017",
+      "baseUrl": ".",
       "paths": {
-        "@/*": ["./"],
-        "@api/*": ["./api/*"]
-      },
-      "target": "ES2017"
+       "@/*": ["src/*"]
+      }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "postcss.config.js", "tailwind.config.js"],
     "exclude": ["node_modules"]
   }

@@ -1,13 +1,13 @@
-# Spotify API Starter <img src="./api/static/favicon-32x32.png" width="30" height="30" />
+# Spotify API Starter <img src="./api/static/favicon-32x32.png" width="32" height="32" />
 
-[![GitHub license](https://img.shields.io/github/license/clxrityy/spotify-api-starter)](https://github.com/clxrityy/spotify-api-starter/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/Apache--2.0-green?style=for-the-badge)](https://github.com/clxrityy/spotify-api-starter/blob/master/LICENSE) ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 This is a starter project for a Spotify API application.
 
 - [Changelog](CHANGELOG.md)
     - [Contributers](CHANGELOG.md#contributers)
-- [Roadmap](#roadmap)
 - [Overview](#overview)
+- [Roadmap](#roadmap)
 
 ## 🛠️ Using the project
 
@@ -17,7 +17,17 @@ This is a starter project for a Spotify API application.
     ```
 2. **Option 2**: Use the template directly from GitHub to create a new repository.
     - This will allow you to use the template and push the changes to your own repository and/or make a pull request to the [original repository](https://github.com/clxrityy/spotify-api-starter).
-    - **This is optimal for making changes to the project and/or contributing to the project.**
+
+
+---
+
+## Overview
+- [Backend API Setup](#backend-api-setup)
+    - [API Key](#api-key)
+    - [API Setup](#api-setup)
+    - [Running the API](#running-the-api)
+- [Frontend](#frontend)
+- [Authorization](#authorization)
 
 ---
 
@@ -37,16 +47,15 @@ This is a starter project for a Spotify API application.
     - [x] [Access Token](https://developer.spotify.com/documentation/web-api/concepts/access-token)
     - [x] User Authentication
         - ~~[Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow)~~
-        - [Authorization Code with PKCE Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
-
-
-## Overview
-- [Backend API Setup](#backend-api-setup)
-    - [API Key](#api-key)
-    - [API Setup](#api-setup)
-    - [Running the API](#running-the-api)
-- [Frontend](#frontend)
-- [Authorization](#authorization-code-flow)
+        - [x] [Authorization Code with PKCE Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
+- [x] Frontend Integration
+    - [x] Display User Data
+        - [ ] Top Artists
+        - [ ] Top Tracks
+        - [ ] Recently Played
+    - [ ] Search Functionality
+        - [ ] Search for Artists
+        - [ ] Search for Tracks
 
 
 ---
@@ -148,3 +157,5 @@ To authorize, visit [`http://localhost:3000/api/auth`](http://localhost:3000/api
     - This will redirect you to the Spotify Accounts Service to authorize the application.
     - After authorizing, you will be redirected back to the application with an authorization code.
     - The application will exchange the authorization code for an access token and store it in a cookie.
+
+<img src="./public/svg/auth_flow.svg" width="65%" alt="Spotify Authentication Process" />

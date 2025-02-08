@@ -1,6 +1,6 @@
 # Changelog
-> Last updated: `2025-02-07`
-> - [Implement Authorization](#implement-authorization)
+> Last updated: `2025-02-08`
+> - [Accessed user data on the frontend](#accessed-user-data-on-the-frontend)
 >   - [@clxrityy](https://github.com/clxrityy)
 
 # OUTLINE
@@ -8,6 +8,7 @@
 - [Initial commit & setup](#initial-commit--setup) | [@clxrityy](https://github.com/clxrityy)
 - [Setting up the frontend (Next.js)](#setting-up-the-frontend-nextjs) | [@clxrityy](https://github.com/clxrityy)
 - [Implement Authorization](#implement-authorization) | [@clxrityy](https://github.com/clxrityy)
+- [Accessed user data on the frontend](#accessed-user-data-on-the-frontend) | [@clxrityy](https://github.om/clxrityy)
 
 ## Contributers
 
@@ -164,3 +165,43 @@ Whenever you make a change to the project, please update the changelog with a br
 - Changed the `redirect_uri` from `http://localhost:5000/api/callback` to `http://localhost:3000`.
 - Set up a code challenge and code verifier for the authorization code flow.
 - You can now access user data after authorization.
+
+---
+
+## Accessed user data on the frontend
+
+> `2025-02-08` | [@clxrityy](https://github.com/clxrityy)
+
+- I added these server actions:
+    - `setTokens()`: Sets the access and refresh tokens in the cookies.
+    - `getToken()`: Gets the access token from the cookies.
+    - `deleteToken()`: Deletes the access token from the cookies.
+
+### Authorization flow
+
+1. User navigates to the main route (`/`) ([`http://localhost:3000`](http://localhost:3000)).
+2. The `page.tsx` component checks if the user is authenticated by calling the `getToken()` function.
+    - If the user has a valid access token, they are considered authenticated.
+3. By default (before authentication), the user can click the *"Login with Spotify"* button which redirects them to the `/api/auth` endpoint.
+    - This endpoint generates the authorization URL and redirects the user to Spotify's authorization page.
+    - The user is prompted to log in to their Spotify account and authorize the application.
+4. After authorization, Spotify sends the user back to the redirect URI (`http://localhost:3000`) with an authorization code in the URL.
+    - The `/api/callback` endpoint handles the callback from Spotify.
+    - It exchanges the authorization code for an access token and refresh token.
+    - The tokens are then stored in cookies using the `setTokens()` function.
+5. The user is redirected back to the main route (`/`) where they are now authenticated.
+
+<img src="./public/svg/auth_flow.svg" width="50%" />
+
+### Accessing user data
+
+- Once the user is authenticated, the `page.tsx` component fetches the user's data from the [`https://api.spotify.com/v1/me`](https://api.spotify.com/v1/me) endpoint using the access token.
+    - If the response is successful, the user's data is stored in state and displayed on the page.
+
+### Resources / References
+
+- [Functions: cookies | Next.js](https://nextjs.org/docs/app/api-reference/functions/cookies)
+    - **Note**: The cookie documentation suggests you can use `cookies()` from `next/headers` within a server component, but this is not the case. You must use `cookies()` within a server action and then call it from a **client** component with `useEffect()` to access the cookies on the client side.
+        - Reference: [Setting cookie in server action gives me an error | Reddit](https://www.reddit.com/r/nextjs/comments/1flih2p/comment/lo6e83l/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE) | Spotify for Developers](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
+- [Error: NEXT_REDIRECT](https://stackoverflow.com/questions/76191324/next-13-4-error-next-redirect-in-api-routes)
