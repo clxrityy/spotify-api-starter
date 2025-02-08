@@ -1,6 +1,6 @@
 # Changelog
-> Last updated: `2025-02-06`
-> - [Initial commit & setup](#)
+> Last updated: `2025-02-07`
+> - [Setting up the frontend](#setting-up-the-frontend-nextjs)
 >   - [@clxrityy](https://github.com/clxrityy)
 
 # OUTLINE
@@ -60,3 +60,94 @@ Whenever you make a change to the project, please update the changelog with a br
 - [clxrityy/next-spotify-stats](https://github.com/clxrityy/next-spotify-stats/blob/main/api/index.py)
 - [Web API | Spotify](https://developer.spotify.com/documentation/web-api)
 - [Quickstart — Flask Documentation](https://flask.palletsprojects.com/en/stable/quickstart/)
+
+---
+
+## Setting up the frontend (Next.js)
+> `2025-02-07` | [@clxrityy](https://github.com/clxrityy)
+
+- [NPM Setup](#npm-setup)
+    - [NPM Scripts](#npm-scripts)
+- [App structure setup](#app-structure-setup)
+- [Integrating the API with the frontend](#integrating-the-api-with-the-frontend)
+
+
+### NPM Setup
+- Initiated a npm project.
+- Installed the following dependencies for a [Next.js](https://nextjs.org/) project:
+    - `next`
+    - `react`
+    - `react-dom`
+- Installed additional dependencies for styling and utiility:
+    - `tailwindcss`
+    - `@tailwindcss/postcss`
+    - `postcss`
+    - `concurrently`
+
+#### NPM Scripts
+- Added the following scripts to the `package.json` file:
+    ```json
+    {
+        "scripts": {
+            "api-dev": "source api/venv/bin/activate && python api/app.py",
+            "next-dev": "next dev",
+            "dev": "concurrently \"pnpm run next-dev\" \"pnpm run api-dev\""
+        },
+    }
+    ```
+
+### App structure setup
+- Set up the following files & directories:
+    ```r
+    |-- app/
+    |   |-- layout.tsx # Main layout component for the app
+    |   |-- page.tsx # Home page
+    |   |-- globals.css # Initiliaze Tailwind CSS
+    |-- public/ # Static assets
+    |   |-- ...
+    |-- package.json # NPM dependencies
+    |-- tailwind.config.ts # Tailwind CSS configuration
+    |-- tsconfig.json # TypeScript
+    |-- postcss.config.ts # PostCSS configuration
+    |-- next.config.ts # Next.js configuration
+    |-- next-env.d.ts # Next.js environment variables
+    ```
+
+### Integrating the API with the frontend
+
+- Altered the next.config.ts file to include rewrites and headers.
+    ```ts
+    const nextConfig: NextConfig = {
+        rewrites: async () => {
+            return [
+                {
+                    source: "/api/:path*",
+                    destination: process.env.NODE_ENV === 'development' ? "http://127.0.0.1:5000/api/:path*" : "/api/"
+                }
+            ]
+        },
+        async headers() {
+            return [
+                {
+                    // matching all API routes
+                    // https://vercel.com/guides/how-to-enable-cors
+                    source: "/api/:path*",
+                    headers: [
+                        { key: "Access-Control-Allow-Credentials", value: "true" },
+                        { key: "Access-Control-Allow-Origin", value: "*" },
+                        {
+                            key: "Access-Control-Allow-Methods",
+                            value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+                        },
+                        {
+                            key: "Access-Control-Allow-Headers",
+                            value:
+                                "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+                        },
+                    ],
+                },
+            ];
+        },
+    }
+    ```
+---

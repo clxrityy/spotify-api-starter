@@ -1,4 +1,4 @@
-# Spotify API Starter
+# Spotify API Starter <img src="./api/static/favicon-32x32.png" width="30" height="30" />
 
 [![GitHub license](https://img.shields.io/github/license/clxrityy/spotify-api-starter)](https://github.com/clxrityy/spotify-api-starter/blob/master/LICENSE)
 
@@ -18,6 +18,9 @@ This is a starter project for a Spotify API application.
 2. **Option 2**: Use the template directly from GitHub to create a new repository.
     - This will allow you to use the template and push the changes to your own repository and/or make a pull request to the [original repository](https://github.com/clxrityy/spotify-api-starter).
     - **This is optimal for making changes to the project and/or contributing to the project.**
+
+- Run `npm install` to install the dependencies.
+- Run `npm run dev` to start the application.
 
 ---
 

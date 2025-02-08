@@ -3,3 +3,8 @@
 .env
 !.env.example
 __pycache__/
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+*.lock
+.next/
