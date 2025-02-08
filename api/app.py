@@ -19,10 +19,11 @@ from flask import Flask
 from flask_cors import CORS
 
 ##### Other imports #####
-# Imports the `get_token()` function from `util/token.py`
-from util.token import get_token
-# Imports the `get_auth_header()` function from `util/header.py`
-from util.header import get_auth_header
+# Imports the `get_token()` function from `func/token.py`
+from func.token import get_token
+# Imports the `get_auth_header()` function from `func/header.py`
+from func.header import get_auth_header
+
 
 ### Variables
 spotify_token = get_token()

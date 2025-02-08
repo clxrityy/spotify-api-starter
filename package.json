@@ -6,7 +6,10 @@
   "scripts": {
     "api-dev": "source api/venv/bin/activate && python api/app.py",
     "next-dev": "next dev",
-    "dev": "concurrently \"pnpm run next-dev\" \"pnpm run api-dev\""
+    "dev": "concurrently \"pnpm run next-dev\" \"pnpm run api-dev\"",
+    "generate-venv": "python3 -m venv api/venv",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",

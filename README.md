@@ -19,9 +19,6 @@ This is a starter project for a Spotify API application.
     - This will allow you to use the template and push the changes to your own repository and/or make a pull request to the [original repository](https://github.com/clxrityy/spotify-api-starter).
     - **This is optimal for making changes to the project and/or contributing to the project.**
 
-- Run `npm install` to install the dependencies.
-- Run `npm run dev` to start the application.
-
 ---
 
 ### Roadmap
@@ -29,16 +26,18 @@ This is a starter project for a Spotify API application.
 - [x] Backend Initialized
     - Python [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) API
     - [x] HTML Template(s)
-- [ ] Frontend Initialized
-    - Will use basic HTML/CSS/JS for now
+- [x] Frontend Initialized
+    - ~~Will use basic HTML/CSS/JS for now~~
+    - Next.js
 - [ ] Database Setup
     - Undecided on database yet
 - [ ] Deployment
     - Will deploy to [Heroku](https://www.heroku.com) likely, unless integrating into a [Next.js](https://nextjs.org/) project (in which case, [Vercel](https://vercel.com/))
 - [x] Spotify API Integration
     - [x] [Access Token](https://developer.spotify.com/documentation/web-api/concepts/access-token)
-    - [ ] User Authentication
-        - [Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow)
+    - [x] User Authentication
+        - ~~[Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow)~~
+        - [Authorization Code with PKCE Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
 
 
 ## Overview
@@ -46,6 +45,8 @@ This is a starter project for a Spotify API application.
     - [API Key](#api-key)
     - [API Setup](#api-setup)
     - [Running the API](#running-the-api)
+- [Frontend](#frontend)
+- [Authorization](#authorization-code-flow)
 
 
 ---
@@ -55,12 +56,12 @@ This is a starter project for a Spotify API application.
 ##### API Key
 
 - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications) and create a new application.
-- Add `http://127.0.0.1:5000/api/callback` as a redirect URI.
+- Add ~~`http://127.0.0.1:5000/api/callback`~~ (`http://localhost:3000`) as a redirect URI.
 - Copy the `Client ID` and `Client Secret` and save them in a `.env` file in the `api/` directory:
     ```bash
     CLIENT_ID="your_client_id"
     CLIENT_SECRET="your_client_secret"
-    REDIRECT_URI=http://127.0.0.1:5000/api/callback
+    REDIRECT_URI=http://localhost:3000
     ```
     - You can also copy the example over and fill it in:
     ```bash
@@ -117,3 +118,30 @@ This is a starter project for a Spotify API application.
         "success": true
     }
     ```
+
+## Frontend
+
+- Install the required packages:
+    ```bash
+    npm install
+    ```
+- Run the application:
+    ```bash
+    npm run dev
+    ```
+- The application will be running on [`http://localhost:3000/`](http://localhost:3000/).
+    - All API requests will be proxied to the backend API.
+
+
+## Authorization 
+
+### Authorization Code with PKCE Flow
+
+- The Authorization Code with PKCE Flow is a more secure way to authenticate users and obtain an access token.
+- The flow involves the following steps:
+    1. The user is redirected to the Spotify Accounts Service to authorize the application.
+    2. The user is redirected back to the application with an authorization code.
+    3. The application exchanges the authorization code for an access token.
+- The flow is implemented in the [`api/routes/auth.py`](/api/routes/auth.py) file.
+
+To authorize, visit [`http://localhost:3000/api/auth`](http://localhost:3000/api/auth).

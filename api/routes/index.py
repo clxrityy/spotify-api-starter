@@ -3,9 +3,10 @@ from __main__ import app
 from flask import render_template
 
 # import other routes here
-from routes import test
+from routes.test import test
+from routes.auth import callback, auth
 
-@app.route('/')
+@app.route('/api')
 def index():
     # This renders the index.html file in the `templates/` folder
     return render_template('index.html')

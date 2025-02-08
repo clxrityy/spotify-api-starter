@@ -1,11 +1,13 @@
 # Changelog
 > Last updated: `2025-02-07`
-> - [Setting up the frontend](#setting-up-the-frontend-nextjs)
+> - [Implement Authorization](#implement-authorization)
 >   - [@clxrityy](https://github.com/clxrityy)
 
 # OUTLINE
 
 - [Initial commit & setup](#initial-commit--setup) | [@clxrityy](https://github.com/clxrityy)
+- [Setting up the frontend (Next.js)](#setting-up-the-frontend-nextjs) | [@clxrityy](https://github.com/clxrityy)
+- [Implement Authorization](#implement-authorization) | [@clxrityy](https://github.com/clxrityy)
 
 ## Contributers
 
@@ -151,3 +153,13 @@ Whenever you make a change to the project, please update the changelog with a br
     }
     ```
 ---
+
+## Implement Authorization 
+> `2025-02-08` | [@clxrityy](https://github.com/clxrityy)
+
+- [Authorization Code with PKCE Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
+    - Added the following endpoints to the API:
+        - `/api/auth`
+        - `/api/callback`
+- Changed the `redirect_uri` from `http://localhost:5000/api/callback` to `http://localhost:3000`.
+- Set up a code challenge and code verifier for the authorization code flow.
