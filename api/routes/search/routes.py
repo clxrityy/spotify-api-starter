@@ -1,4 +1,4 @@
-from main import app
+from main import app, client_id, client_secret
 from requests import get
 from func.header import get_auth_header
 from func.token import get_token
@@ -11,7 +11,7 @@ def searchArtistFunc(artist_name: str):
     query = f"?q={artist_name}&type=artist&limit=6"
     
     query_url = url + query
-    result = get(query_url, headers=get_auth_header(get_token()))
+    result = get(query_url, headers=get_auth_header(get_token(client_id=client_id, client_secret=client_secret)))
     
     json_result = json.loads(result.content)['artists']["items"]
     
@@ -26,7 +26,7 @@ def searchTrackFunc(track_name: str):
     query = f"?q={track_name}&type=track&limit=6"
     
     query_url = url + query
-    result = get(query_url, headers=get_auth_header(get_token()))
+    result = get(query_url, headers=get_auth_header(get_token(client_id=client_id, client_secret=client_secret)))
     
     json_result = json.loads(result.content)['tracks']["items"]
     
