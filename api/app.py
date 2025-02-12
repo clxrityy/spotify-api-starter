@@ -38,13 +38,18 @@ app = Flask(__name__)
 # Required for session
 app.secret_key = os.urandom(24)
 
+## TEST
+import sys
+print(sys.path)
+
 # This enables CORS for our Flask application.
 CORS(app, resources={
     r"/api/*": {
         "origins": ["http://localhost:3000", "https://spotify-api-starter-kappa.vercel.app"],
         "methods": ["GET", "POST"],
         "allow_headers": ["Content-Type"],
-        "supports_credentials": True
+        "supports_credentials": True,
+        
     }
 })
 
@@ -57,4 +62,4 @@ from routes import index
 # This is the main function that runs when the script is executed
 if __name__ == "__main__":
     # This runs the Flask application
-    app.run(load_dotenv=True)
+    app.run(load_dotenv=True, host="0.0.0.0")

@@ -25,3 +25,5 @@ def index():
         return render_template('index.html')
     except requests.exceptions.RequestException:
         return redirect(url_for('404.html'))
+    
+    return render_template('index.html')
