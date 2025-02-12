@@ -12,7 +12,7 @@ client_secret = os.getenv("CLIENT_SECRET")
 # This assigns the value of the DEVELOPMENT environment variable to the development variable.
 development = os.getenv("DEVELOPMENT", "False").lower() == "true"
 debug = False
-host = "0.0.0.0"
+host = "localhost"
 
 if development:
     debug = True
@@ -32,14 +32,12 @@ from flask_session import Session
 ## @See: https://flask.palletsprojects.com/en/stable/quickstart/#sessions
 
 ##### Other imports #####
-# Imports the `get_token()` function from `func/token.py`
-from func.token import get_access_token
-# Imports the `get_auth_header()` function from `func/header.py`
+from func.token import get_token
 from func.header import get_auth_header
 
 
 ### Variables
-spotify_token = get_access_token()
+spotify_token = get_token(client_id=client_id, client_secret=client_secret)
 spotify_auth_header = get_auth_header(spotify_token)
 
 # This creates a new Flask application.

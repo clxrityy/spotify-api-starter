@@ -4,8 +4,7 @@ import json
 from flask import session, has_request_context
 
 # This function retrieves an access token from the Spotify API.
-def get_credentials():
-    from main import client_id, client_secret
+def get_credentials(client_id: str, client_secret: str):
     # This concatenates the client_id and client_secret variables with a colon.
     auth_string = client_id + ":" + client_secret
     
@@ -58,5 +57,5 @@ def save_tokens(tokens):
     if "refresh_token" in tokens:
         session['refresh_token'] = tokens['refresh_token']
         
-def get_token(): 
-    return get_credentials()['access_token']
+def get_token(client_id: str, client_secret: str): 
+    return get_credentials(client_id=client_id, client_secret=client_secret)['access_token']
