@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spotify API Starter</title>
+        <title>404 | Spotify API Starter</title>
         <link rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}" />
         <!-- 
@@ -21,20 +21,21 @@
             href="{{ url_for('static', filename='site.webmanifest') }}" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-
-        <!--
-            FONT
-        -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <h1>Spotify API Starter</h1>
-        </header>
         <main>
-            
+            <h1>404 - Not Found</h1>
+            <p>The page you are looking for does not exist or you are unauthorized.</p>
+            <button>
+                <a href="/api/auth">
+                    <p>
+                        Authorize with Spotify
+                    </p>
+                </a>
+            </button>
         </main>
+        <footer>
+            <p>&copy; 2025 Spotify API Starter</p>
+        </footer>
     </body>
 </html>

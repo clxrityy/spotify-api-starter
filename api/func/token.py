@@ -52,7 +52,11 @@ def get_refresh_token():
 
 def save_tokens(tokens):
     if not has_request_context():
+        print("Session not available, cannot save tokens.")
         return
     session['access_token'] = tokens['access_token']
     if "refresh_token" in tokens:
         session['refresh_token'] = tokens['refresh_token']
+        
+def get_token(): 
+    return get_credentials()['access_token']

@@ -2,12 +2,14 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { setTokens, deleteToken, getToken } from "@/app/_actions/useTokens";
-import { useEffect, useState } from "react";
-import { SpotifyUserData } from "@/types";
+import { Suspense, useEffect, useState } from "react";
+import { SpotifyUserData } from "@/util/types";
 import { ICONS } from "@/config";
+import { User } from "@/components/User";
+import { Search } from "@/components/ui/Search";
 
-export default function Home() {
 
+function Main() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const searchParams = useSearchParams();
@@ -16,6 +18,12 @@ export default function Home() {
     const router = useRouter();
 
     const [userData, setUserData] = useState<SpotifyUserData | null>(null);
+
+    const handleUserClick = () => {
+        if (userData) {
+            router.push(`/profile/${userData.id}`);
+        }
+    }
 
     useEffect(() => {
         async function fetchData() {
@@ -84,7 +92,7 @@ export default function Home() {
 
     if (isLoading) {
         return (
-            <main className="flex min-h-screen items-center justify-center">
+            <main className="flex h-full items-center justify-center">
                 <ICONS.loading className="loader" size={200} />
             </main>
         );
@@ -93,17 +101,25 @@ export default function Home() {
 
     if (userData) {
         return (
-            <main className="p-8">
-                <h1 className="text-2xl mb-4">Welcome, {userData.display_name}!</h1>
-                <pre className="bg-gray-800 p-4 rounded overflow-x-scroll text-wrap max-w-fit">
-                    {JSON.stringify(userData, null, 2)}
-                </pre>
+            <main className="p-8 relative">
+                <nav className="fixed top-0 right-0 flex justify-between items-center p-4">
+                    <User handleClick={handleUserClick} userData={userData} />
+                </nav>
+                <div className="flex flex-col items-center justify-center gap-10 w-1/2">
+                    <h1 className="text-2xl mb-4">Welcome, {userData.display_name}!</h1>
+                    <div className="flex flex-col items-center justify-center gap-5 px-5 py-2">
+                        <Suspense fallback={<ICONS.loading className="loader" size={200} />}>
+                            <Search type="artist" />
+                            <Search type="track" />
+                        </Suspense>
+                    </div>
+                </div>
             </main>
         );
     }
 
     return (
-        <main className="flex justify-center w-full">
+        <main className="flex flex-col items-center gap-16 justify-center w-full">
             <button className="login-button">
                 <Link
                     href="http://localhost:3000/api/auth"
@@ -126,6 +142,20 @@ export default function Home() {
                     Continue with Spotify
                 </Link>
             </button>
+            <div className="flex flex-col items-center justify-around gap-5 px-5 py-2">
+                <Suspense fallback={<ICONS.loading className="loader" size={200} />}>
+                    <Search type="artist" />
+                    <Search type="track" />
+                </Suspense>
+            </div>
         </main>
     );
+}
+
+export default function Home() {
+    return (
+        <Suspense>
+            <Main />
+        </Suspense>
+    )
 }

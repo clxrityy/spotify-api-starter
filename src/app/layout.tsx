@@ -8,6 +8,7 @@ const montserrat = Montserrat({
     subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700"],
     variable: "--font-mont",
+    preload: true,
 })
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     ]
 }
 
-export default async function RootLayout({
+export default function RootLayout({
     children,
 }: {
     children: React.ReactNode,

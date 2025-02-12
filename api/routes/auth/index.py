@@ -7,3 +7,4 @@ def auth():
 
 from .callback import callback
 from .token import get_token_route, get_refresh_token_route
+from .profile.top import top

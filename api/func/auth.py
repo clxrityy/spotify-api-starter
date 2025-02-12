@@ -3,9 +3,10 @@ from urllib.parse import urlencode
 from __main__ import client_id
 from func.code import codeChallenge, codeVerifier
 import requests
+from func.token import save_tokens
 
 redirect_uri = "http://localhost:3000"
-scope = "user-read-private user-read-email user-read-playback-state user-read-currently-playing"
+scope = "user-read-private user-read-email user-read-playback-state user-read-currently-playing user-top-read"
 auth_url = "https://accounts.spotify.com/authorize"
 
 def get_auth_url():
@@ -43,6 +44,8 @@ def get_code_token(code):
     response = requests.post(token_url, data=payload, headers=headers)
     
     if response.status_code == 200:
+        token_data = response.json()
+        save_tokens(token_data)
         return response.json()
     else:
         return {

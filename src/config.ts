@@ -1,6 +1,12 @@
-import { LoaderCircle, LogIn } from "lucide-react";
+import { LoaderCircle, LogIn, Music, TriangleAlert, UserIcon } from "lucide-react";
+
 
 export const ICONS = {
     login: LogIn,
-    loading: LoaderCircle
+    loading: LoaderCircle,
+    track: Music,
+    artist: UserIcon,
+    error: TriangleAlert
 }
+
+export const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://your-production-url.com";

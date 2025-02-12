@@ -6,21 +6,9 @@ This is a starter project for a Spotify API application.
 
 - [Changelog](CHANGELOG.md)
     - [Contributers](CHANGELOG.md#contributers)
-- [Overview](#overview)
-- [Roadmap](#roadmap)
-
-## 🛠️ Using the project
-
-1. **Option 1**: Clone the repository and run the API locally.
-    ```bash
-    git clone https://github.com/clxrityy/spotify-api-starter.git
-    ```
-2. **Option 2**: Use the template directly from GitHub to create a new repository.
-    - This will allow you to use the template and push the changes to your own repository and/or make a pull request to the [original repository](https://github.com/clxrityy/spotify-api-starter).
 
 
 ---
-
 ## Overview
 - [Backend API Setup](#backend-api-setup)
     - [API Key](#api-key)
@@ -28,35 +16,6 @@ This is a starter project for a Spotify API application.
     - [Running the API](#running-the-api)
 - [Frontend](#frontend)
 - [Authorization](#authorization)
-
----
-
-### Roadmap
-
-- [x] Backend Initialized
-    - Python [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) API
-    - [x] HTML Template(s)
-- [x] Frontend Initialized
-    - ~~Will use basic HTML/CSS/JS for now~~
-    - Next.js
-- [ ] Database Setup
-    - Undecided on database yet
-- [ ] Deployment
-    - Will deploy to [Heroku](https://www.heroku.com) likely, unless integrating into a [Next.js](https://nextjs.org/) project (in which case, [Vercel](https://vercel.com/))
-- [x] Spotify API Integration
-    - [x] [Access Token](https://developer.spotify.com/documentation/web-api/concepts/access-token)
-    - [x] User Authentication
-        - ~~[Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow)~~
-        - [x] [Authorization Code with PKCE Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
-- [x] Frontend Integration
-    - [x] Display User Data
-        - [ ] Top Artists
-        - [ ] Top Tracks
-        - [ ] Recently Played
-    - [ ] Search Functionality
-        - [ ] Search for Artists
-        - [ ] Search for Tracks
-
 
 ---
 
@@ -154,8 +113,6 @@ This is a starter project for a Spotify API application.
 - The flow is implemented in the [`api/routes/auth.py`](/api/routes/auth.py) file.
 
 To authorize, visit [`http://localhost:3000/api/auth`](http://localhost:3000/api/auth).
-    - This will redirect you to the Spotify Accounts Service to authorize the application.
+- This will redirect you to the Spotify Accounts Service to authorize the application.
     - After authorizing, you will be redirected back to the application with an authorization code.
-    - The application will exchange the authorization code for an access token and store it in a cookie.
-
-<img src="./public/svg/auth_flow.svg" width="65%" alt="Spotify Authentication Process" />
+- The application will exchange the authorization code for an access token and store it in a cookie.

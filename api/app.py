@@ -17,6 +17,9 @@ from flask import Flask
 # This imports the CORS class from the flask_cors module, which allows us to enable CORS for our Flask application.
 ## @See: https://flask-cors.readthedocs.io/en/latest/api.html
 from flask_cors import CORS
+# import flask sessions
+# This imports the session object from the flask module, which allows us to manage user sessions in our Flask application.
+## @See: https://flask.palletsprojects.com/en/stable/quickstart/#sessions
 
 ##### Other imports #####
 # Imports the `get_token()` function from `func/token.py`
