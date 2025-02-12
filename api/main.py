@@ -9,6 +9,15 @@ load_dotenv()
 # This assigns the value of the CLIENT_ID & CLIENT_SECRET environment variables to the client_id & client_secret variables, respectively.
 client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
+# This assigns the value of the DEVELOPMENT environment variable to the development variable.
+development = os.getenv("DEVELOPMENT", "False").lower() == "true"
+debug = False
+host = "0.0.0.0"
+
+if development:
+    debug = True
+else:
+    host = "spotify-api-starter-kappa.vercel.app"
 
 ##### Flask imports #####
 # This imports the Flask class from the flask module, which allows us to create a Flask application.
@@ -38,10 +47,6 @@ app = Flask(__name__)
 # Required for session
 app.secret_key = os.urandom(24)
 
-## TEST
-import sys
-print(sys.path)
-
 # This enables CORS for our Flask application.
 CORS(app, resources={
     r"/api/*": {
@@ -49,17 +54,17 @@ CORS(app, resources={
         "methods": ["GET", "POST"],
         "allow_headers": ["Content-Type"],
         "supports_credentials": True,
-        
     }
 })
 
-
 # Import all the routes from the routes folder
 from routes import index
-
+from routes.auth.index import *
 
 # !!! IMPORTANT !!!
 # This is the main function that runs when the script is executed
 if __name__ == "__main__":
     # This runs the Flask application
-    app.run(load_dotenv=True, host="0.0.0.0")
+    app.run(load_dotenv=True,
+            host=host,
+            debug=debug)

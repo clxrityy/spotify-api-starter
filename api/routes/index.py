@@ -1,5 +1,5 @@
-from app import app
-from flask import render_template, redirect, url_for
+from main import app
+from flask import render_template
 import requests
 
 from func.token import get_access_token
@@ -7,7 +7,6 @@ from func.header import get_auth_header
 
 # import other routes here
 from routes.test import test
-from routes.auth.index import *
 from routes.search.routes import  searchArtist, searchTrack
 
 
@@ -24,6 +23,6 @@ def index():
         response.raise_for_status()
         return render_template('index.html')
     except requests.exceptions.RequestException:
-        return redirect(url_for('404.html'))
+        return render_template('404.html')
     
     return render_template('index.html')

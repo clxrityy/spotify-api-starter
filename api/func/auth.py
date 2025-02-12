@@ -1,6 +1,6 @@
 from flask import redirect, request, jsonify
 from urllib.parse import urlencode
-from app import client_id
+from main import client_id
 from func.code import codeChallenge, codeVerifier
 import requests
 from func.token import save_tokens

@@ -5,8 +5,8 @@
   "main": "index.js",
   "packageManager": "npm@11.0.0",
   "scripts": {
-    "api-dev": "source venv/bin/activate && python api/app.py",
-    "api-start": "source venv/bin/activate && python api/app.py && export FLASK_APP=api/app.py && flask run",
+    "api-dev": "source venv/bin/activate && python api/main.py",
+    "api-start": "source venv/bin/activate && python api/main.py && export FLASK_APP=api/main.py && flask run",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run api-dev\"",
     "generate-venv": "python3 -m venv venv/",

@@ -1,4 +1,4 @@
-from app import app
+from main import app
 from requests import get
 from func.header import get_auth_header
 from func.token import get_token
@@ -41,7 +41,7 @@ def searchTrackFunc(track_name: str):
 @app.route("/api/search/artist/<id>")
 def searchArtist(id: str):
     id = escape(id)
-    if len(id) > 0:
+    if len(id) > 2:
         results = searchArtistFunc(id)
     else:
         results = ""
@@ -50,7 +50,7 @@ def searchArtist(id: str):
 @app.route("/api/search/track/<id>")
 def searchTrack(id: str):
     id = escape(id)
-    if len(id) > 0:
+    if len(id) > 2:
         results = searchTrackFunc(id)
     else:
         results = ""
