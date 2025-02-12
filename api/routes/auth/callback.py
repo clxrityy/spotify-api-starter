@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from __main__ import app, client_id
+from app import app, client_id
 import requests
 from func.code import codeVerifier
 from func.auth import development

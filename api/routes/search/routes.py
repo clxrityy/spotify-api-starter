@@ -1,4 +1,4 @@
-from __main__ import app
+from app import app
 from requests import get
 from func.header import get_auth_header
 from func.token import get_token
