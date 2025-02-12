@@ -1,5 +1,5 @@
 
-import { SpotifyArtistResponse, SpotifyProfileTopTrackItem } from "@/util/types";
+import { SpotifyArtistResponse, SpotifyProfileTopTrackItem } from "../util/types";
 import { ImageComponent } from "./ui/ImageComponent";
 
 

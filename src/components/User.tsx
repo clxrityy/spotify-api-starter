@@ -1,6 +1,6 @@
 "use client";
 
-import { type SpotifyUserData } from "@/util/types";
+import { type SpotifyUserData } from "../util/types";
 import { ImageComponent } from "./ui/ImageComponent";
 // import { useEffect, useState, useRef } from "react";
 

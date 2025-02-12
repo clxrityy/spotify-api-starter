@@ -1,5 +1,5 @@
 "use client";
-import { ICONS } from "@/config";
+import { ICONS } from "../../config";
 import { SyntheticEvent } from "react";
 
 type Props = {

@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { setTokens, deleteToken, getToken } from "@/app/_actions/useTokens";
+import { setTokens, deleteToken, getToken } from "./_actions/useTokens";
 import { Suspense, useEffect, useState } from "react";
-import { SpotifyUserData } from "@/util/types";
-import { BASE_URL, ICONS } from "@/config";
-import { User } from "@/components/User";
-import { Search } from "@/components/ui/Search";
+import { SpotifyUserData } from "../util/types";
+import { BASE_URL, ICONS } from "../config";
+import { User } from "../components/User";
+import { Search } from "../components/ui/Search";
 
 
 function Main() {

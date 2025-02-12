@@ -1,4 +1,4 @@
-import { cn } from "@/util/cn";
+import { cn } from "../../util/cn";
 import { ComponentProps, CSSProperties } from "react";
 
 interface Props extends ComponentProps<"div"> {

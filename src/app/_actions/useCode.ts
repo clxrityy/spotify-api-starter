@@ -1,5 +1,5 @@
 "use server"
-import { BASE_URL } from "@/config";
+import { BASE_URL } from "../../config";
 import { setTokens } from "./useTokens";
 
 export async function useCode(code?: string) {

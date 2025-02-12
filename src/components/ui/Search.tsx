@@ -2,9 +2,9 @@
 
 import { useState, useCallback, useRef, useMemo } from "react";
 import { Skeleton } from "./Skeleton";
-import { SpotifyArtistResponse, SpotifyProfileTopTrackItem } from "@/util/types";
+import { SpotifyArtistResponse, SpotifyProfileTopTrackItem } from "../../util/types";
 import { SearchArtistResult, SearchTrackResult } from "../SearchResult";
-import { BASE_URL, ICONS } from "@/config";
+import { BASE_URL, ICONS } from "../../config";
 import debounce from "lodash/debounce"
 
 
