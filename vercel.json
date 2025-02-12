@@ -2,11 +2,10 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/api/app.py"
+            "destination": "/api/app"
         }
     ],
-    "installCommand": "npm install",
+    "installCommand": "npm install --omit=dev",
     "devCommand": "concurrently \"npm run next-dev\" \"npm run api-dev\"",
-    "buildCommand": "next build",
-    "outputDirectory": ".next"
+    "buildCommand": "next build"
 }
