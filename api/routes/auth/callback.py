@@ -2,6 +2,7 @@ from flask import request, jsonify
 from __main__ import app, client_id
 import requests
 from func.code import codeVerifier
+from func.auth import development
 
 @app.route('/api/callback', methods=["POST"])
 def callback():
@@ -19,7 +20,7 @@ def callback():
         payload = {
             'grant_type': 'authorization_code',
             'code': code,
-            'redirect_uri': 'http://localhost:3000',  # Next.js app URL
+            'redirect_uri': development and "http://localhost:3000" or "https://spotify-api-starter-kappa.vercel.app",  # Next.js app URL
             'client_id': client_id,
             'code_verifier': codeVerifier
         }

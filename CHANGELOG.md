@@ -1,6 +1,6 @@
 # Changelog
 > Last updated: `2025-02-12`
-> - [Search for artists and tracks](#search-for-artists-and-tracks)
+> - [Deployment](#deployment)
 
 # OUTLINE
 
@@ -16,6 +16,7 @@
 - ```2025-02-10``` | [Top 10 Artists & Tracks](#top-10-artists--tracks)
 - ```2025-02-12``` | [Search for artists and tracks](#search-for-artists-and-tracks)
     - [Client-side display](#client-side-display)
+- ```2025-02-12``` | [Deployment](#deployment)
 
 ## Contributers
 
@@ -274,3 +275,24 @@ const debouncedSearch = useCallback(debouce(async (searchQuery: string) => {
 - [Web API Reference | Search](https://developer.spotify.com/documentation/web-api/reference/search)
 - [Debouncing in React | Medium](https://medium.com/@manigandham/debouncing-react-events-with-react-hooks-2f1d6f5c2467)
 - [How to use debounce hooks in React](https://stackoverflow.com/questions/75556418/how-to-use-debounce-hooks-in-react)
+
+---
+
+## Deployment
+
+> `2025-02-12` | [@clxrityy](https://github.com/clxrityy)
+
+- Deployed the application to [Vercel](https://vercel.com/).
+    - The frontend is now live at [`https://spotify-api-starter-kappa.vercel.app/`](https://spotify-api-starter-kappa.vercel.app/).
+- Added the following environment variables to the Vercel project:
+    - `CLIENT_ID`
+    - `CLIENT_SECRET`
+    - `REDIRECT_URI`
+    - `DEVELOPMENT`
+    > - These are all different from the development environment variables. Such as `DEVELOPMENT` set to `false`, and the `REDIRECT_URI` set to `https://spotify-api-starter-kappa.vercel.app/`.
+    > - Ensure the client ID & client secret are correct for the production environment.
+- Replaced all occurances of `http://localhost:3000` with boolean checks for `process.env.DEVELOPMENT` in the codebase.
+    - `process.env.NODE_ENV` for frontend and `os.environ.get("DEVELOPMENT")` for backend.
+    - This ensures that the application works in both development and production environments.
+
+> hopefully this deployment works properly

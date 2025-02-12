@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { setTokens, deleteToken, getToken } from "@/app/_actions/useTokens";
 import { Suspense, useEffect, useState } from "react";
 import { SpotifyUserData } from "@/util/types";
-import { ICONS } from "@/config";
+import { BASE_URL, ICONS } from "@/config";
 import { User } from "@/components/User";
 import { Search } from "@/components/ui/Search";
 
@@ -58,7 +58,7 @@ function Main() {
         async function callback() {
             if (code) {
                 try {
-                    const response = await fetch("http://localhost:3000/api/callback", {
+                    const response = await fetch(`${BASE_URL}/api/callback`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -122,7 +122,7 @@ function Main() {
         <main className="flex flex-col items-center gap-16 justify-center w-full">
             <button className="login-button">
                 <Link
-                    href="http://localhost:3000/api/auth"
+                    href={`/api/auth`}
                     className="flex flex-row items-center text-center justify-between gap-4"
                 >
                     <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000">

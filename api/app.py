@@ -17,6 +17,7 @@ from flask import Flask
 # This imports the CORS class from the flask_cors module, which allows us to enable CORS for our Flask application.
 ## @See: https://flask-cors.readthedocs.io/en/latest/api.html
 from flask_cors import CORS
+from flask_session import Session
 # import flask sessions
 # This imports the session object from the flask module, which allows us to manage user sessions in our Flask application.
 ## @See: https://flask.palletsprojects.com/en/stable/quickstart/#sessions
@@ -40,7 +41,7 @@ app.secret_key = os.urandom(24)
 # This enables CORS for our Flask application.
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:3000"],
+        "origins": ["http://localhost:3000", "https://spotify-api-starter-kappa.vercel.app"],
         "methods": ["GET", "POST"],
         "allow_headers": ["Content-Type"],
         "supports_credentials": True

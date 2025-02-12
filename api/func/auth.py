@@ -4,8 +4,11 @@ from __main__ import client_id
 from func.code import codeChallenge, codeVerifier
 import requests
 from func.token import save_tokens
+import os
 
-redirect_uri = "http://localhost:3000"
+development = os.getenv("DEVELOPMENT", "False").lower() == "true"
+
+redirect_uri = development and "http://localhost:3000" or "https://spotify-api-starter-kappa.vercel.app"
 scope = "user-read-private user-read-email user-read-playback-state user-read-currently-playing user-top-read"
 auth_url = "https://accounts.spotify.com/authorize"
 

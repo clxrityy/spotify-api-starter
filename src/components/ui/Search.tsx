@@ -4,7 +4,7 @@ import { useState, useCallback, useRef, useMemo } from "react";
 import { Skeleton } from "./Skeleton";
 import { SpotifyArtistResponse, SpotifyProfileTopTrackItem } from "@/util/types";
 import { SearchArtistResult, SearchTrackResult } from "../SearchResult";
-import { ICONS } from "@/config";
+import { BASE_URL, ICONS } from "@/config";
 import debounce from "lodash/debounce"
 
 
@@ -19,7 +19,7 @@ export const Search = ({ type }: { type: "artist" | "track" }) => {
 
     async function getData({ type, query }: { type: "artist" | "track", query: string }) {
         setLoading(true);
-        const res = await fetch(`http://localhost:3000/api/search/${type}/${query}`, {
+        const res = await fetch(`${BASE_URL}/api/search/${type}/${query}`, {
         });
         const data = await res.json();
         if (!res.ok) {

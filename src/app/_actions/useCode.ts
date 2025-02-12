@@ -1,10 +1,11 @@
 "use server"
+import { BASE_URL } from "@/config";
 import { setTokens } from "./useTokens";
 
 export async function useCode(code?: string) {
     if (code) {
         try {
-            const tokenResponse = await fetch(`http://localhost:3000/api/callback`, {
+            const tokenResponse = await fetch(`${BASE_URL}/api/callback`, {
                 method: 'POST',
                 body: JSON.stringify({ code }),
                 headers: {

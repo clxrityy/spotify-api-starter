@@ -2,7 +2,7 @@
 
 import { deleteToken, getToken } from "@/app/_actions/useTokens";
 import { ImageComponent } from "@/components/ui/ImageComponent";
-import { ICONS } from "@/config";
+import { BASE_URL, ICONS } from "@/config";
 import { SpotifyProfileTopArtistItem, SpotifyProfileTopData, SpotifyProfileTopTrackItem, SpotifyUserData } from "@/util/types";
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
@@ -67,7 +67,7 @@ export default function Page({ params }: Props) {
     useEffect(() => {
         async function fetchTopData() {
             try {
-                const topArtistsResponse = await fetch(`http://localhost:3000/api/auth/profile/top/artists`)
+                const topArtistsResponse = await fetch(`${BASE_URL}/api/auth/profile/top/artists`)
 
                 if (topArtistsResponse.ok) {
                     setTopArtistsData(await topArtistsResponse.json());
@@ -79,7 +79,7 @@ export default function Page({ params }: Props) {
             }
 
             try {
-                const topTracksResponse = await fetch(`http://localhost:3000/api/auth/profile/top/tracks`)
+                const topTracksResponse = await fetch(`${BASE_URL}/api/auth/profile/top/tracks`)
 
                 if (topTracksResponse.ok) {
                     setTopTracksData(await topTracksResponse.json());
