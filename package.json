@@ -12,7 +12,7 @@
     "generate-venv": "python3 -m venv venv/",
     "build": "next build",
     "start": "next start && api-dev",
-    "clean": "rm -rf .next && rm -rf node_modules && npm i",
+    "clean": "rm -rf .next && rm -rf node_modules && rm -rf package-lock.json && npm i",
     "install-api": "python3 -m venv venv/ && source venv/bin/activate && python3 -m pip install -r requirements.txt"
   },
   "keywords": [],

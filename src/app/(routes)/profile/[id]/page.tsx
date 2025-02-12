@@ -3,7 +3,7 @@
 import { deleteToken, getToken } from "../../../_actions/useTokens";
 import { ImageComponent } from "../../../../components/ui/ImageComponent";
 import { BASE_URL, ICONS } from "../../../../config";
-import { SpotifyProfileTopArtistItem, SpotifyProfileTopData, SpotifyProfileTopTrackItem, SpotifyUserData } from "@/util/types";
+import { SpotifyProfileTopArtistItem, SpotifyProfileTopData, SpotifyProfileTopTrackItem, SpotifyUserData } from "../../../../util/types";
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
 
