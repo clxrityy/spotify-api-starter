@@ -24,9 +24,9 @@ from flask_session import Session
 
 ##### Other imports #####
 # Imports the `get_token()` function from `func/token.py`
-from .func.token import get_access_token
+from func.token import get_access_token
 # Imports the `get_auth_header()` function from `func/header.py`
-from .func.header import get_auth_header
+from func.header import get_auth_header
 
 
 ### Variables
