@@ -1,4 +1,4 @@
-from main import app, client_id
+from . import app, client_id
 from flask import jsonify
 import requests
 from .token import get_access_token, get_refresh_token

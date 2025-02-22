@@ -1,4 +1,4 @@
-from main import app
+from . import app
 from func import auth as ath
 
 @app.route("/api/auth")

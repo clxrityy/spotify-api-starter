@@ -1,5 +1,5 @@
 from flask import session, has_request_context
-from main import get_credentials
+from . import get_credentials
 
 def get_access_token():
     if not has_request_context():
