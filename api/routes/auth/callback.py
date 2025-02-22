@@ -1,8 +1,8 @@
 from flask import request, jsonify
-from . import app, client_id
+from ...main import app, client_id
 import requests
-from func.code import codeVerifier
-from func.auth import development
+from ...func.code import codeVerifier
+from ...func.auth import development
 
 @app.route('/api/callback', methods=["POST"])
 def callback():

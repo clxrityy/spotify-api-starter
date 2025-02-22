@@ -1,8 +1,8 @@
-from . import app
+from ..main import app
 from flask import render_template
 import requests
 
-from func import token as tk, auth, header
+from ..func import token as tk, auth, header
 
 
 

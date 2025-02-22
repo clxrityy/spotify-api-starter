@@ -1,5 +1,5 @@
-from . import app
-from func.auth import auth_route
+from ...main import app
+from ...func.auth import auth_route
 
 @app.route("/api/auth")
 def auth():

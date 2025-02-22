@@ -1,9 +1,9 @@
 from flask import redirect, request, jsonify
 from urllib.parse import urlencode
-from . import client_id
-from func.code import codeChallenge, codeVerifier
+from ..main import client_id
+from ..func.code import codeChallenge, codeVerifier
 import requests
-from func.token import save_tokens
+from .token import save_tokens
 import os
 
 development = os.getenv("DEVELOPMENT", "False").lower() == "true"

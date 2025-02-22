@@ -1,7 +1,7 @@
-from . import app, client_id, client_secret
+from ..main import app, client_id, client_secret
 from requests import get
-from func.header import get_auth_header
-from func.token import get_token
+from ..func.header import get_auth_header
+from ..func.token import get_token
 from markupsafe import escape
 import json
 from flask import jsonify
