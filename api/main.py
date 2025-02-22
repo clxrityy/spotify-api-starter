@@ -40,7 +40,7 @@ import base64
 import json
 
 ##### Other imports #####
-from .header import get_auth_header
+from .func.header import get_auth_header
 
 ##### Functions #####
 # This function takes a client_id and client_secret as arguments and returns the access token from the Spotify API.
