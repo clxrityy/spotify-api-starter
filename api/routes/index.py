@@ -2,22 +2,19 @@ from main import app
 from flask import render_template
 import requests
 
-from func.token import get_access_token
-from func.header import get_auth_header
+from func import token as tk, auth, header
 
-# import other routes here
-from routes.test import test
-from routes.search.routes import  searchArtist, searchTrack
+
 
 
 @app.route('/api')
-def index():
-    token = get_access_token()
+def api_route():
+    token = tk.get_access_token()
     if not token:
         return render_template("404.html")
         
     # Verify token by making a test request to Spotify API
-    headers = get_auth_header(token)
+    headers = header.get_auth_header(token)
     try:
         response = requests.get('https://api.spotify.com/v1/me', headers=headers)
         response.raise_for_status()
@@ -26,3 +23,8 @@ def index():
         return render_template('404.html')
     
     return render_template('index.html')
+
+# Import all the routes from the routes folder
+import test
+from .search import searchArtist, searchTrack
+from routes.auth import route

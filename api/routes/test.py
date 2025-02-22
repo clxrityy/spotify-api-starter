@@ -2,7 +2,7 @@ from main import app
 from flask import jsonify
 
 @app.route("/api/test")
-def test():
+def test_route():
     data = {
         "message": "Hello World",
         "status": 200,
