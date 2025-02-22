@@ -27,4 +27,4 @@ def api_route():
 # Import all the routes from the routes folder
 import test
 from .search import searchArtist, searchTrack
-from routes.auth import route
+from ..routes.auth import route
