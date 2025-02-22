@@ -89,7 +89,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 # Import all the routes from the routes folder
-import routes.index
+from .routes import index
 
 
 # This enables CORS for our Flask application.
