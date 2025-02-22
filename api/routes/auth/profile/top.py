@@ -1,4 +1,4 @@
-from main import app
+from ....main import app
 from requests import get
 from flask import request
 import json
